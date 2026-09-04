@@ -20,7 +20,7 @@ Engineers can operate all layers. Analysts consume Gold assets only. Auditors co
 
 ## Known first-release gaps
 
-- No real workspace execution evidence yet.
+- Free Edition execution is verified; enterprise workspace controls remain untested.
 - The illustrative grants require target-workspace principals.
 - Compute defaults are AWS-oriented placeholders and must be replaced with approved target values.
 - The demo does not yet include Structured Streaming or change-data capture.

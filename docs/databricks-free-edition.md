@@ -34,9 +34,19 @@ From the notebook, schedule or create a Job using serverless compute. Name it `L
 
 The optional bundle under `examples/free-edition/` expresses the same notebook task without defining a classic cluster. Validate it only after configuring Databricks CLI authentication for the workspace.
 
-## 5. Capture evidence
+## 5. Captured evidence
 
-Create `evidence/databricks-run/YYYY-MM-DD/` and add:
+The reference run was completed on **4 September 2026** in Databricks Free Edition:
+
+- All seven executable notebook cells succeeded on serverless compute.
+- The assertion result was `6 / 5 / 1 / 997.60 / VERIFIED`.
+- Four managed tables were created in the `lakehouse_rescue_lab` schema.
+- The saved serverless Job completed successfully in 1 minute 18 seconds.
+- No recurring trigger was enabled.
+
+See the [sanitized run manifest](../evidence/databricks-run/2026-09-04/run-manifest.md). Workspace URLs, account identifiers and authentication details are intentionally not published.
+
+For a future evidence refresh, create `evidence/databricks-run/YYYY-MM-DD/` and add:
 
 - Executed notebook exported as HTML with outputs
 - Screenshot of the successful Lakeflow Job run
@@ -48,4 +58,4 @@ Never add workspace tokens, cookies, account identifiers or private URLs to the 
 
 ## 6. Update public claims
 
-Only change the site status from **In progress** to **Verified in Databricks** after the evidence above exists and the asserted counts have passed in the workspace.
+Only show **Verified in Databricks** when the asserted counts have passed in the workspace and a sanitized run manifest is committed. Refresh the date and runtime after any material notebook change.

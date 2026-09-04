@@ -68,7 +68,7 @@ The repository now includes an import-ready Databricks notebook that executes th
 
 Expected execution contract: **6 Bronze records → 5 trusted Silver records + 1 quarantined duplicate → RM997.60 Gold revenue**.
 
-The public page deliberately labels workspace execution as **In progress** until exported notebook output and Job-run evidence have been added to the repository.
+This execution contract was verified in Databricks Free Edition on **4 September 2026**. All seven executable notebook cells succeeded, the final assertion returned `VERIFIED`, and the serverless Job completed successfully in **1 minute 18 seconds**. See the [sanitized run manifest](evidence/databricks-run/2026-09-04/run-manifest.md).
 
 ## Databricks-oriented implementation
 
@@ -101,4 +101,4 @@ databricks bundle run lakehouse_rescue_job -t dev
 
 ## Status
 
-This first release is a portfolio demonstrator. Real workspace execution evidence—job-run screenshots, runtime output and a short walkthrough—should only be added after the bundle has been run in an actual Databricks workspace.
+The interactive site remains a transparent browser simulation, while the matching notebook and serverless Job have now been executed successfully in Databricks Free Edition. The evidence is deliberately sanitized: no workspace tokens, account identifiers or private run URLs are published. Free Edition validation demonstrates the transformation and orchestration path; it does not claim enterprise networking, SSO, production SLAs or client-data delivery.
