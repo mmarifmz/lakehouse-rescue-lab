@@ -15,6 +15,44 @@ An interactive, inspectable demonstration of production-minded Databricks delive
 - Declarative Databricks deployment targets
 - Unit tests and operational recovery guidance
 
+## The example in plain English
+
+Imagine that an online shop receives five genuine orders worth **RM997.60**. The source system accidentally sends one RM420 order twice.
+
+| Stage | What happens |
+|---|---|
+| Incoming data | Six rows arrive because one order is duplicated. |
+| Bronze | All six rows are preserved exactly as received so the delivery can be audited or replayed. |
+| Silver | The pipeline recognises the repeated order ID, keeps one trusted version and marks the extra row as a duplicate. |
+| Gold | The dashboard reports the correct revenue of **RM997.60**, not the incorrect RM1,417.60. |
+
+This is the practical value of the project: a common data-delivery problem is detected before it becomes a misleading business report.
+
+The interactive site also includes invalid amounts, broken timestamps and late-arriving orders. Each scenario explains what the pipeline did and why.
+
+## 60-second guided tour
+
+1. Open the [live experience](https://mmarifmz.github.io/lakehouse-rescue-lab/).
+2. Select **Duplicate delivery** and press **Run pipeline**.
+3. Observe six Bronze records become five trusted Silver records.
+4. Confirm that one duplicate is quarantined and Gold revenue remains RM997.60.
+5. Switch between **Engineer**, **Analyst** and **Auditor** to see how access changes the record view.
+6. Return here and inspect the linked implementation, tests, deployment definition and recovery runbook.
+
+## For recruiters and delivery managers
+
+This repository provides evidence of more than notebook development:
+
+- **Data engineering:** PySpark transformations, explicit contracts and business-ready SQL.
+- **Reliability:** repeatable deduplication, quarantine and documented recovery procedures.
+- **Platform delivery:** Databricks resources defined as code with separate development and production targets.
+- **Governance:** role-oriented access and masking design rather than unrestricted table access.
+- **Communication:** a non-technical stakeholder can experience the outcome without workspace credentials.
+
+## For prospective clients
+
+The demonstration answers a simple delivery question: **what prevents unreliable source data from reaching management reports?** The same patterns can be adapted to orders, finance, operations, education, manufacturing or other governed datasets. A real engagement would replace the synthetic example, principals and compute placeholders with the client's approved data contract, cloud environment and access model.
+
 ## Explore locally
 
 No build step is required. Open `index.html` in a browser, or serve the directory with any static web server.
