@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive Databricks lakehouse delivery demonstration.">
+  <title>Lakehouse Rescue Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Lakehouse Rescue Lab home">
+      <span class="brand-mark">LR</span>
+      <span>Lakehouse Rescue Lab</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#lab">Interactive lab</a>
+      <a href="#evidence">Delivery evidence</a>
+      <a class="nav-cta" href="https://github.com/mmarifmz/lakehouse-rescue-lab">View repository</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow"><span></span> Interactive lakehouse delivery proof</div>
+      <h1>Bad data arrives.<br><em>Trusted decisions leave.</em></h1>
+      <p class="hero-copy">Explore how a production-minded Databricks pipeline detects duplicate orders, quarantines invalid records, protects customer data and rebuilds reliable business metrics.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#lab">Run the pipeline <span>→</span></a>
+        <a class="button secondary" href="#architecture">See the architecture</a>
+      </div>
+      <div class="proof-strip" aria-label="Project capabilities">
+        <span>PySpark</span><i></i><span>Delta patterns</span><i></i><span>Data quality</span><i></i><span>Unity Catalog design</span><i></i><span>CI/CD</span>
+      </div>
+    </section>
+
+    <section class="lab-section" id="lab">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">01 / Interactive lab</div>
+            <h2>Put the pipeline under pressure.</h2>
+          </div>
+          <p>Choose an incident and see what changes at every layer. All records are synthetic.</p>
+        </div>
+
+        <div class="control-panel">
+          <div class="scenario-control">
+            <label for="scenario">Incoming data scenario</label>
+            <select id="scenario">
+              <option value="normal">Normal trading day</option>
+              <option value="duplicates">Duplicate delivery</option>
+              <option value="invalid">Invalid records</option>
+              <option value="late">Late-arriving orders</option>
+            </select>
+          </div>
+          <div class="persona-control" role="group" aria-label="Data persona">
+            <span>View as</span>
+            <button class="persona active" data-persona="engineer">Engineer</button>
+            <button class="persona" data-persona="analyst">Analyst</button>
+            <button class="persona" data-persona="auditor">Auditor</button>
+          </div>
+          <button class="run-button" id="runPipeline">Run pipeline <span>▶</span></button>
+        </div>
+
+        <div class="status-line" aria-live="polite">
+          <span class="status-dot"></span>
+          <strong id="statusText">Ready to process</strong>
+          <span id="runMeta">Select a scenario, then run the pipeline.</span>
+        </div>
+
+        <div class="pipeline" id="pipeline">
+          <article class="layer-card bronze" data-layer="bronze">
+            <div class="layer-top"><span class="layer-number">01</span><span class="layer-state">Waiting</span></div>
+            <h3>Bronze</h3>
+            <p>Raw, immutable landing zone</p>
+            <div class="metric"><strong id="bronzeCount">—</strong><span>records received</span></div>
+            <ul><li>Source metadata</li><li>Ingestion timestamp</li><li>Replayable history</li></ul>
+          </article>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <article class="layer-card silver" data-layer="silver">
+            <div class="layer-top"><span class="layer-number">02</span><span class="layer-state">Waiting</span></div>
+            <h3>Silver</h3>
+            <p>Validated and conformed data</p>
+            <div class="metric"><strong id="silverCount">—</strong><span>trusted records</span></div>
+            <ul><li>Schema enforcement</li><li>Deterministic deduplication</li><li>PII classification</li></ul>
+          </article>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <article class="layer-card gold" data-layer="gold">
+            <div class="layer-top"><span class="layer-number">03</span><span class="layer-state">Waiting</span></div>
+            <h3>Gold</h3>
+            <p>Business-ready aggregates</p>
+            <div class="metric"><strong id="goldRevenue">—</strong><span>trusted revenue</span></div>
+            <ul><li>Daily sales mart</li><li>Channel performance</li><li>Auditable definitions</li></ul>
+          </article>
+        </div>
+
+        <div class="results-grid">
+          <article class="panel quality-panel">
+            <div class="panel-title"><div><span>Data quality</span><h3>Rules and quarantine</h3></div><span class="badge" id="qualityBadge">Not run</span></div>
+            <div class="quality-rules" id="qualityRules"></div>
+          </article>
+          <article class="panel records-panel">
+            <div class="panel-title"><div><span>Record explorer</span><h3 id="recordTitle">Processed records</h3></div><span class="badge neutral" id="personaBadge">Engineer view</span></div>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Order</th><th>Customer</th><th>Channel</th><th>Amount</th><th>Status</th></tr></thead>
+                <tbody id="recordRows"><tr><td colspan="5" class="empty">Run the pipeline to inspect records.</td></tr></tbody>
+              </table>
+            </div>
+          </article>
+        </div>
+
+        <div class="incident-note" id="incidentNote">
+          <span>Operational insight</span>
+          <p>The pipeline has not run yet. Choose a failure scenario to see how quality controls protect the reported revenue.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="architecture shell" id="architecture">
+      <div class="section-heading">
+        <div><div class="kicker">02 / Architecture</div><h2>Designed for delivery, not screenshots.</h2></div>
+        <p>The public experience is a transparent browser simulation. The repository contains the corresponding Databricks-oriented implementation.</p>
+      </div>
+      <div class="architecture-grid">
+        <article><span>Source control</span><h3>One deployable repository</h3><p>Pipeline code, job resources, access model, tests and operational documentation are versioned together.</p></article>
+        <article><span>Automation</span><h3>Declarative bundle</h3><p>Development and production targets are defined as code for repeatable validation and deployment.</p></article>
+        <article><span>Governance</span><h3>Least-privilege access</h3><p>Catalog grants, masking design and persona-specific outputs demonstrate governed consumption.</p></article>
+        <article><span>Reliability</span><h3>Testable recovery</h3><p>Duplicate delivery, malformed input and late data are documented failure modes—not demo-day surprises.</p></article>
+      </div>
+    </section>
+
+    <section class="evidence" id="evidence">
+      <div class="shell evidence-inner">
+        <div><div class="kicker light">03 / Delivery evidence</div><h2>Inspect every claim.</h2></div>
+        <div class="evidence-list">
+          <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/tree/main/src"><span>01</span><div><strong>Pipeline source</strong><small>PySpark transformations and SQL marts</small></div><b>↗</b></a>
+          <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/tree/main/tests"><span>02</span><div><strong>Automated tests</strong><small>Quality, deduplication and KPI contracts</small></div><b>↗</b></a>
+          <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/databricks.yml"><span>03</span><div><strong>Deployment definition</strong><small>Databricks bundle with dev and prod targets</small></div><b>↗</b></a>
+          <a href="docs/runbook.md"><span>04</span><div><strong>Operations runbook</strong><small>Detection, recovery and replay procedures</small></div><b>↗</b></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="shell"><span>Lakehouse Rescue Lab</span><p>Interactive portfolio demonstration · Synthetic data only · Browser simulation clearly separated from Databricks execution</p></div></footer>
+  <script src="app.js"></script>
+</body>
+</html>

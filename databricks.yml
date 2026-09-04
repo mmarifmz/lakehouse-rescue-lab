@@ -1,0 +1,27 @@
+bundle:
+  name: lakehouse-rescue-lab
+
+include:
+  - resources/*.yml
+
+variables:
+  spark_version:
+    description: Approved Databricks Runtime version for the target workspace
+    default: 15.4.x-scala2.12
+  node_type_id:
+    description: Approved worker node type for the target cloud
+    default: i3.xlarge
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      root_path: /Workspace/Users/${workspace.current_user.userName}/.bundle/${bundle.name}/${bundle.target}
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Shared/.bundle/${bundle.name}/${bundle.target}
+    permissions:
+      - level: CAN_VIEW
+        group_name: users
