@@ -13,6 +13,7 @@ An interactive, inspectable demonstration of production-minded Databricks delive
 - Incremental handling of late-arriving data
 - Governed, persona-specific consumption
 - Declarative Databricks deployment targets
+- Multi-cloud delivery mapping for AWS, Azure and Google Cloud
 - Unit tests and operational recovery guidance
 
 ## The example in plain English
@@ -46,6 +47,7 @@ This repository provides evidence of more than notebook development:
 - **Data engineering:** PySpark transformations, explicit contracts and business-ready SQL.
 - **Reliability:** repeatable deduplication, quarantine and documented recovery procedures.
 - **Platform delivery:** Databricks resources defined as code with separate development and production targets.
+- **Multi-cloud capability:** one Databricks workload pattern adapted to AWS, Azure or Google Cloud storage, identity, private networking and monitoring services.
 - **Governance:** role-oriented access and masking design rather than unrestricted table access.
 - **Communication:** a non-technical stakeholder can experience the outcome without workspace credentials.
 
@@ -92,6 +94,7 @@ databricks bundle run lakehouse_rescue_job -t dev
 | Recovery procedure | `docs/runbook.md` |
 | Free Edition execution | `notebooks/lakehouse_rescue_lab.py`, `examples/free-edition/` |
 | Onboarding and evidence | `docs/databricks-free-edition.md` |
+| AWS, Azure and Google Cloud delivery | `docs/multi-cloud-delivery.md` |
 
 ## Publish to GitHub Pages
 

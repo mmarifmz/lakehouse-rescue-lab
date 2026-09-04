@@ -151,6 +151,44 @@
           <div class="verification-item verified"><span>Verified</span><strong>Databricks execution</strong><small>Free Edition notebook and serverless Job succeeded</small></div>
         </div>
 
+        <div class="multicloud-capability" aria-labelledby="multicloud-title">
+          <div class="multicloud-intro">
+            <div>
+              <div class="kicker">Multi-cloud delivery capability</div>
+              <h3 id="multicloud-title">One lakehouse pattern. Three major clouds.</h3>
+            </div>
+            <p>We keep the Databricks workload portable, then adapt identity, storage, private connectivity, deployment and monitoring to the client's chosen cloud.</p>
+          </div>
+
+          <div class="cloud-provider-grid">
+            <article class="cloud-provider aws">
+              <div class="cloud-provider-top"><span class="cloud-monogram">AWS</span><span class="capability-label">Delivery ready</span></div>
+              <h4>Amazon Web Services</h4>
+              <p>Databricks delivery aligned to AWS-native data, security and operational controls.</p>
+              <ul><li>Amazon S3 storage</li><li>IAM roles and policies</li><li>AWS PrivateLink</li><li>CloudWatch integration</li></ul>
+            </article>
+            <article class="cloud-provider azure">
+              <div class="cloud-provider-top"><span class="cloud-monogram">AZURE</span><span class="capability-label">Delivery ready</span></div>
+              <h4>Microsoft Azure</h4>
+              <p>Azure Databricks delivery integrated with the organisation's Azure governance model.</p>
+              <ul><li>ADLS Gen2 storage</li><li>Microsoft Entra ID</li><li>Azure Private Link</li><li>Azure Monitor integration</li></ul>
+            </article>
+            <article class="cloud-provider gcp">
+              <div class="cloud-provider-top"><span class="cloud-monogram">GCP</span><span class="capability-label">Delivery ready</span></div>
+              <h4>Google Cloud</h4>
+              <p>Databricks delivery mapped to Google Cloud data, identity and networking services.</p>
+              <ul><li>Cloud Storage</li><li>Cloud IAM</li><li>Private Service Connect</li><li>Cloud Monitoring integration</li></ul>
+            </article>
+          </div>
+
+          <div class="cloud-boundary">
+            <strong>What stays consistent</strong>
+            <span>PySpark · Delta tables · Unity Catalog · Lakeflow Jobs · CI/CD · observability</span>
+            <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/docs/multi-cloud-delivery.md">Inspect the delivery matrix →</a>
+          </div>
+          <p class="cloud-proof-note"><strong>Evidence boundary:</strong> the notebook and serverless Job are verified in Databricks Free Edition. AWS, Azure and Google Cloud cards describe our delivery capability and adaptation model, not three claimed production deployments.</p>
+        </div>
+
         <div class="platform-map">
           <article>
             <span class="platform-index">DBX / 01</span>
@@ -231,6 +269,7 @@ print("LAKEHOUSE RESCUE: VERIFIED")</code></pre>
           <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/databricks.yml"><span>03</span><div><strong>Deployment definition</strong><small>Databricks bundle with dev and prod targets</small></div><b>↗</b></a>
           <a href="docs/runbook.md"><span>04</span><div><strong>Operations runbook</strong><small>Detection, recovery and replay procedures</small></div><b>↗</b></a>
           <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/evidence/databricks-run/2026-09-04/run-manifest.md"><span>05</span><div><strong>Databricks run manifest</strong><small>Sanitized Free Edition notebook and Job evidence</small></div><b>↗</b></a>
+          <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/docs/multi-cloud-delivery.md"><span>06</span><div><strong>Multi-cloud delivery matrix</strong><small>AWS, Azure and Google Cloud adaptation model</small></div><b>↗</b></a>
         </div>
       </div>
     </section>
