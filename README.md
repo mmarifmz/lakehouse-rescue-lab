@@ -14,6 +14,7 @@ An interactive, inspectable demonstration of production-minded Databricks delive
 - Governed, persona-specific consumption
 - Declarative Databricks deployment targets
 - Multi-cloud delivery mapping for AWS, Azure and Google Cloud
+- Interactive Databricks delivery checklist and business use-case planner
 - Unit tests and operational recovery guidance
 
 ## The example in plain English
@@ -95,6 +96,7 @@ databricks bundle run lakehouse_rescue_job -t dev
 | Free Edition execution | `notebooks/lakehouse_rescue_lab.py`, `examples/free-edition/` |
 | Onboarding and evidence | `docs/databricks-free-edition.md` |
 | AWS, Azure and Google Cloud delivery | `docs/multi-cloud-delivery.md` |
+| Client discovery checklist and ERP use cases | `delivery-planner.html`, `planner.js` |
 
 ## Publish to GitHub Pages
 

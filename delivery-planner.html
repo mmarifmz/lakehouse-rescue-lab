@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An interactive Databricks delivery checklist and business use-case guide for data engineering teams.">
+  <title>Databricks Delivery Planner · Lakehouse Rescue Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260904-3">
+  <link rel="stylesheet" href="planner.css?v=20260904-1">
+</head>
+<body class="planner-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Lakehouse Rescue Lab home"><span class="brand-mark">LR</span><span>Lakehouse Rescue Lab</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html#lab">Interactive lab</a>
+      <a href="index.html#databricks">Databricks delivery</a>
+      <a class="active" href="delivery-planner.html" aria-current="page">Delivery planner</a>
+      <a class="nav-cta" href="https://github.com/mmarifmz/lakehouse-rescue-lab">View repository</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="planner-intro shell">
+      <div>
+        <div class="eyebrow"><span></span> Client discovery and delivery checklist</div>
+        <h1>Plan the outcome.<br><em>Then build the lakehouse.</em></h1>
+        <p>Use this checklist with business sponsors, managers and technical owners before committing to an end-to-end Databricks solution.</p>
+      </div>
+      <aside class="planner-principle"><span>Start here</span><strong>What decision must improve?</strong><p>A platform is not the outcome. Agree on the decision, owner, trusted metric and required response time first.</p></aside>
+    </section>
+
+    <section class="planner-workspace" aria-labelledby="checklist-title">
+      <div class="shell">
+        <div class="workspace-heading">
+          <div><div class="kicker">01 / Delivery readiness</div><h2 id="checklist-title">End-to-end Databricks checklist</h2></div>
+          <p>Progress is saved only in this browser. Tick an item when the named owner and evidence are agreed—not when it is merely discussed.</p>
+        </div>
+
+        <div class="progress-board" aria-live="polite">
+          <div class="progress-score"><strong id="progressPercent">0%</strong><span>delivery readiness</span></div>
+          <div class="progress-track" aria-hidden="true"><span id="progressBar"></span></div>
+          <div class="progress-count"><strong id="progressCount">0 of 25</strong><span>decisions confirmed</span></div>
+          <button class="reset-plan" id="resetPlan" type="button">Reset checklist</button>
+        </div>
+
+        <div class="phase-tabs" role="group" aria-label="Filter delivery phases">
+          <button class="phase-tab active" type="button" aria-pressed="true" data-phase="all">All phases <span>25</span></button>
+          <button class="phase-tab" type="button" aria-pressed="false" data-phase="outcome">1. Outcome <span>5</span></button>
+          <button class="phase-tab" type="button" aria-pressed="false" data-phase="sources">2. Sources <span>5</span></button>
+          <button class="phase-tab" type="button" aria-pressed="false" data-phase="lakehouse">3. Lakehouse <span>5</span></button>
+          <button class="phase-tab" type="button" aria-pressed="false" data-phase="governance">4. Governance <span>5</span></button>
+          <button class="phase-tab" type="button" aria-pressed="false" data-phase="operate">5. Operate <span>5</span></button>
+        </div>
+
+        <div class="checklist-layout">
+          <div class="checklist-groups" id="checklistGroups">
+            <section class="checklist-phase" data-phase-panel="outcome" aria-labelledby="phase-outcome">
+              <header><span>01</span><div><h3 id="phase-outcome">Business outcome</h3><p>Turn the request into a measurable decision and accountable operating goal.</p></div><strong class="phase-progress" data-progress-for="outcome">0 / 5</strong></header>
+              <div class="checklist-items">
+                <label><input type="checkbox" data-check-id="outcome-owner"><span><strong>Name the decision owner and executive sponsor</strong><small>Someone must accept scope, priority and the final business result.</small></span></label>
+                <label><input type="checkbox" data-check-id="outcome-decision"><span><strong>Write the decision or action the solution will improve</strong><small>For example: release blocked orders, reduce stock-outs or shorten month-end close.</small></span></label>
+                <label><input type="checkbox" data-check-id="outcome-kpi"><span><strong>Agree on KPI definitions, baseline and target</strong><small>Record the calculation, owner, current result and expected improvement.</small></span></label>
+                <label><input type="checkbox" data-check-id="outcome-users"><span><strong>Identify users, workflow and required freshness</strong><small>Clarify who acts on the data and whether they need monthly, daily or real-time updates.</small></span></label>
+                <label><input type="checkbox" data-check-id="outcome-boundary"><span><strong>Confirm scope, budget, deadline and exclusions</strong><small>Make phase-one boundaries visible before architecture and estimates are finalised.</small></span></label>
+              </div>
+            </section>
+
+            <section class="checklist-phase" data-phase-panel="sources" aria-labelledby="phase-sources">
+              <header><span>02</span><div><h3 id="phase-sources">Source and data readiness</h3><p>Understand the source systems, ownership and extraction constraints.</p></div><strong class="phase-progress" data-progress-for="sources">0 / 5</strong></header>
+              <div class="checklist-items">
+                <label><input type="checkbox" data-check-id="sources-inventory"><span><strong>Inventory source systems and business owners</strong><small>Include SAP S/4HANA, Oracle Fusion or EBS, Dynamics 365, CRM, files, APIs and operational databases.</small></span></label>
+                <label><input type="checkbox" data-check-id="sources-access"><span><strong>Confirm approved access and extraction method</strong><small>Choose supported batch, CDC, event or file interfaces without bypassing ERP controls.</small></span></label>
+                <label><input type="checkbox" data-check-id="sources-contract"><span><strong>Document keys, history, timestamps and currencies</strong><small>Capture business keys, change behaviour, fiscal calendars, units and time zones.</small></span></label>
+                <label><input type="checkbox" data-check-id="sources-quality"><span><strong>Profile volume, quality and reconciliation totals</strong><small>Use record counts, control totals and known exceptions to establish a trusted baseline.</small></span></label>
+                <label><input type="checkbox" data-check-id="sources-sla"><span><strong>Agree on latency, availability and backfill expectations</strong><small>Size the design around peak volume, outage recovery and history-load requirements.</small></span></label>
+              </div>
+            </section>
+
+            <section class="checklist-phase" data-phase-panel="lakehouse" aria-labelledby="phase-lakehouse">
+              <header><span>03</span><div><h3 id="phase-lakehouse">Lakehouse architecture</h3><p>Design a reliable path from source evidence to business-ready products.</p></div><strong class="phase-progress" data-progress-for="lakehouse">0 / 5</strong></header>
+              <div class="checklist-items">
+                <label><input type="checkbox" data-check-id="lakehouse-platform"><span><strong>Select cloud, region, workspace and network pattern</strong><small>Align Databricks with residency, connectivity, identity and client cloud standards.</small></span></label>
+                <label><input type="checkbox" data-check-id="lakehouse-contract"><span><strong>Define Bronze, Silver and Gold data contracts</strong><small>Separate replayable source data, validated entities and decision-ready metrics.</small></span></label>
+                <label><input type="checkbox" data-check-id="lakehouse-quality"><span><strong>Define quality rules, quarantine and replay</strong><small>Specify what fails, what can continue and how corrections are safely reprocessed.</small></span></label>
+                <label><input type="checkbox" data-check-id="lakehouse-incremental"><span><strong>Design incremental, late-arriving and delete handling</strong><small>Make change behaviour explicit instead of relying on full refreshes.</small></span></label>
+                <label><input type="checkbox" data-check-id="lakehouse-compute"><span><strong>Choose jobs, compute, orchestration and cost controls</strong><small>Match serverless or configured compute to workload SLAs and budgets.</small></span></label>
+              </div>
+            </section>
+
+            <section class="checklist-phase" data-phase-panel="governance" aria-labelledby="phase-governance">
+              <header><span>04</span><div><h3 id="phase-governance">Security and governance</h3><p>Make access, ownership and auditability part of the delivery—not an afterthought.</p></div><strong class="phase-progress" data-progress-for="governance">0 / 5</strong></header>
+              <div class="checklist-items">
+                <label><input type="checkbox" data-check-id="governance-catalog"><span><strong>Define Unity Catalog structure and data owners</strong><small>Agree catalog, schema, product naming and accountable stewardship.</small></span></label>
+                <label><input type="checkbox" data-check-id="governance-access"><span><strong>Map users, groups and service identities</strong><small>Apply least privilege for engineers, analysts, managers, auditors and automation.</small></span></label>
+                <label><input type="checkbox" data-check-id="governance-sensitive"><span><strong>Classify sensitive fields and protection rules</strong><small>Cover personal, payroll, supplier, pricing and commercially sensitive data.</small></span></label>
+                <label><input type="checkbox" data-check-id="governance-lineage"><span><strong>Confirm lineage, audit, retention and deletion needs</strong><small>Ensure the solution can explain where a number came from and who accessed it.</small></span></label>
+                <label><input type="checkbox" data-check-id="governance-environments"><span><strong>Separate development, test and production controls</strong><small>Document promotion approvals, secrets, test data and production access.</small></span></label>
+              </div>
+            </section>
+
+            <section class="checklist-phase" data-phase-panel="operate" aria-labelledby="phase-operate">
+              <header><span>05</span><div><h3 id="phase-operate">Delivery and operations</h3><p>Prove the result, release safely and leave the client able to operate it.</p></div><strong class="phase-progress" data-progress-for="operate">0 / 5</strong></header>
+              <div class="checklist-items">
+                <label><input type="checkbox" data-check-id="operate-cicd"><span><strong>Version code and automate environment deployment</strong><small>Use tests and deployment definitions to make releases repeatable.</small></span></label>
+                <label><input type="checkbox" data-check-id="operate-uat"><span><strong>Agree reconciliation, UAT and sign-off evidence</strong><small>Compare ERP control totals and business scenarios before go-live.</small></span></label>
+                <label><input type="checkbox" data-check-id="operate-observe"><span><strong>Set monitoring, alert owners and recovery runbooks</strong><small>Cover failed jobs, stale data, quality drift, cost and downstream impact.</small></span></label>
+                <label><input type="checkbox" data-check-id="operate-consumption"><span><strong>Deliver the approved consumption experience</strong><small>Connect dashboards, SQL, APIs or machine-learning outputs to the real workflow.</small></span></label>
+                <label><input type="checkbox" data-check-id="operate-handover"><span><strong>Complete training, handover and operating ownership</strong><small>Confirm support boundaries, documentation, service levels and improvement backlog.</small></span></label>
+              </div>
+            </section>
+          </div>
+
+          <aside class="next-action-card">
+            <span>Next recommended action</span><strong id="nextAction">Name the decision owner and executive sponsor</strong><p id="nextActionPhase">Phase 1 · Business outcome</p>
+            <div class="manager-prompts"><h3>Questions for the manager</h3><ul><li>What decision is slow or unreliable today?</li><li>What is the cost of leaving it unchanged?</li><li>Who owns the metric and signs off the result?</li><li>How quickly must the team respond?</li></ul></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="use-cases shell" aria-labelledby="use-case-title">
+      <div class="workspace-heading">
+        <div><div class="kicker">02 / Business scenarios</div><h2 id="use-case-title">Where Databricks creates value</h2></div>
+        <p>Databricks complements source applications by combining, governing and analysing their data. It does not replace the ERP transaction system.</p>
+      </div>
+      <div class="use-case-filters" role="group" aria-label="Filter use cases">
+        <button class="use-case-filter active" type="button" aria-pressed="true" data-use-filter="all">All scenarios</button><button class="use-case-filter" type="button" aria-pressed="false" data-use-filter="erp">ERP &amp; finance</button><button class="use-case-filter" type="button" aria-pressed="false" data-use-filter="supply">Supply chain</button><button class="use-case-filter" type="button" aria-pressed="false" data-use-filter="customer">Customer</button><button class="use-case-filter" type="button" aria-pressed="false" data-use-filter="operations">Operations &amp; AI</button>
+      </div>
+      <div class="use-case-grid" id="useCaseGrid">
+        <article class="use-case-card featured" data-use-category="erp supply"><div class="use-case-top"><span>SAP S/4HANA</span><b>ERP</b></div><h3>Enterprise performance and process visibility</h3><p>Combine finance, sales, procurement, inventory and manufacturing data with non-SAP sources for trusted cross-functional analysis.</p><ul><li>Order-to-cash and margin analysis</li><li>Procure-to-pay and supplier performance</li><li>Inventory, demand and production insight</li><li>Finance close and reconciliation</li></ul></article>
+        <article class="use-case-card" data-use-category="erp"><div class="use-case-top"><span>Oracle Fusion / EBS</span><b>ERP</b></div><h3>Finance and procurement analytics</h3><p>Unify Oracle ERP data with budgets, operational systems and historical platforms without changing the system of record.</p><ul><li>General ledger and management reporting</li><li>Spend and supplier analytics</li><li>Projects, assets and cost visibility</li><li>Reconciliation across Oracle environments</li></ul></article>
+        <article class="use-case-card" data-use-category="erp supply"><div class="use-case-top"><span>Dynamics 365 &amp; other ERP</span><b>ERP</b></div><h3>Cross-ERP reporting after growth or acquisition</h3><p>Create shared definitions across Dynamics, NetSuite, Infor, legacy databases and spreadsheets while source systems remain operational.</p><ul><li>Group-wide revenue and cost reporting</li><li>Common customer, supplier and product views</li><li>Migration profiling and validation</li><li>Historical reporting during ERP change</li></ul></article>
+        <article class="use-case-card" data-use-category="supply operations"><div class="use-case-top"><span>Supply chain</span><b>Planning</b></div><h3>Demand, inventory and fulfilment decisions</h3><p>Connect ERP transactions with warehouse, logistics, forecast and external signals to respond earlier.</p><ul><li>Stock-out and excess inventory risk</li><li>On-time-in-full performance</li><li>Lead-time and supplier reliability</li><li>Forecast accuracy and scenario planning</li></ul></article>
+        <article class="use-case-card" data-use-category="customer"><div class="use-case-top"><span>CRM + commerce</span><b>Customer</b></div><h3>Trusted customer and revenue intelligence</h3><p>Join CRM, digital activity, orders, service and billing data to give commercial teams one governed view.</p><ul><li>Customer 360 and segmentation</li><li>Churn and next-best-action models</li><li>Campaign and channel measurement</li><li>Sales pipeline and revenue forecasting</li></ul></article>
+        <article class="use-case-card" data-use-category="operations"><div class="use-case-top"><span>Manufacturing + IoT</span><b>Operations</b></div><h3>Quality, maintenance and production insight</h3><p>Combine plant events and sensor data with ERP work orders, materials and quality records.</p><ul><li>Predictive maintenance</li><li>Yield, scrap and downtime analysis</li><li>Batch and product traceability</li><li>Operational anomaly detection</li></ul></article>
+        <article class="use-case-card" data-use-category="erp operations"><div class="use-case-top"><span>Controls + risk</span><b>Governance</b></div><h3>Continuous control and exception monitoring</h3><p>Apply repeatable checks across high-volume transactions while keeping a traceable path to the source.</p><ul><li>Duplicate payment and journal detection</li><li>Segregation-of-duties analytics</li><li>Master-data quality monitoring</li><li>Audit evidence and control dashboards</li></ul></article>
+        <article class="use-case-card" data-use-category="operations"><div class="use-case-top"><span>Documents + data</span><b>AI</b></div><h3>Governed AI grounded in enterprise information</h3><p>Prepare approved structured and unstructured data for assistants, forecasting and machine-learning workflows.</p><ul><li>Document and policy search</li><li>Forecasting and optimisation</li><li>Case summarisation and routing</li><li>Model monitoring and governed access</li></ul></article>
+      </div>
+      <p class="source-boundary"><strong>Integration note:</strong> the correct extraction option depends on ERP version, licensing, approved interfaces, data volume, latency and the client's security architecture. Source access should be confirmed during discovery.</p>
+    </section>
+  </main>
+
+  <footer><div class="shell"><span>Lakehouse Rescue Lab</span><p>Delivery planner · Progress stored locally in your browser · No client data collected</p></div></footer>
+  <script src="planner.js?v=20260904-1"></script>
+</body>
+</html>
