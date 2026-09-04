@@ -1,7 +1,6 @@
 """Pure PySpark transformations used by the Databricks job and unit tests."""
 
-from pyspark.sql import DataFrame, Window
-from pyspark.sql import functions as F
+from pyspark.sql import DataFrame, Window, functions as F
 
 
 REQUIRED_COLUMNS = {"order_id", "customer_id", "customer_name", "channel", "amount", "event_ts", "ingested_at"}
