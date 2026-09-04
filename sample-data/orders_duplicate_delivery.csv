@@ -1,0 +1,7 @@
+order_id,customer_id,customer_name,channel,amount,event_ts,ingested_at
+ORD-1041,CUS-01,Amina Rahman,Web,248.00,2026-09-04 09:00:00,2026-09-04 09:01:00
+ORD-1042,CUS-02,Daniel Lee,Store,89.50,2026-09-04 09:05:00,2026-09-04 09:06:00
+ORD-1043,CUS-03,Siti Nabila,Marketplace,420.00,2026-09-04 09:10:00,2026-09-04 09:11:00
+ORD-1043,CUS-03,Siti Nabila,Marketplace,420.00,2026-09-04 09:10:00,2026-09-04 09:12:00
+ORD-1044,CUS-04,Kumar Raj,Web,175.20,2026-09-04 09:15:00,2026-09-04 09:16:00
+ORD-1045,CUS-05,Mei Chen,Store,64.90,2026-09-04 09:20:00,2026-09-04 09:21:00

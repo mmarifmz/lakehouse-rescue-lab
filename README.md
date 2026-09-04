@@ -57,6 +57,19 @@ The demonstration answers a simple delivery question: **what prevents unreliable
 
 No build step is required. Open `index.html` in a browser, or serve the directory with any static web server.
 
+## Run the real example in Databricks Free Edition
+
+The repository now includes an import-ready Databricks notebook that executes the same duplicate-order scenario on serverless Spark, persists managed tables and stops if the expected outcome is not met.
+
+- Start with the [Free Edition onboarding guide](docs/databricks-free-edition.md).
+- Import [the Databricks notebook](notebooks/lakehouse_rescue_lab.py).
+- Use the optional [serverless bundle example](examples/free-edition/) after workspace authentication is configured.
+- Compare the result with [the synthetic source CSV](sample-data/orders_duplicate_delivery.csv).
+
+Expected execution contract: **6 Bronze records → 5 trusted Silver records + 1 quarantined duplicate → RM997.60 Gold revenue**.
+
+The public page deliberately labels workspace execution as **In progress** until exported notebook output and Job-run evidence have been added to the repository.
+
 ## Databricks-oriented implementation
 
 The bundle is intentionally environment-neutral. Before deploying, supply workspace-specific values for `spark_version` and `node_type_id` or adapt the job to an approved serverless environment.
@@ -77,6 +90,8 @@ databricks bundle run lakehouse_rescue_job -t dev
 | Access model | `governance/grants.sql` |
 | Automated checks | `tests/test_transformations.py`, `.github/workflows/ci.yml` |
 | Recovery procedure | `docs/runbook.md` |
+| Free Edition execution | `notebooks/lakehouse_rescue_lab.py`, `examples/free-edition/` |
+| Onboarding and evidence | `docs/databricks-free-edition.md` |
 
 ## Publish to GitHub Pages
 

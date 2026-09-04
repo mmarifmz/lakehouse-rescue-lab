@@ -18,6 +18,7 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#lab">Interactive lab</a>
+      <a href="#databricks">Databricks delivery</a>
       <a href="#evidence">Delivery evidence</a>
       <a class="nav-cta" href="https://github.com/mmarifmz/lakehouse-rescue-lab">View repository</a>
     </nav>
@@ -134,9 +135,95 @@
       </div>
     </section>
 
+    <section class="databricks-section" id="databricks">
+      <div class="shell">
+        <div class="section-heading">
+          <div>
+            <div class="kicker">03 / Databricks delivery</div>
+            <h2>From browser story to a real lakehouse run.</h2>
+          </div>
+          <p>The public lab explains the outcome. This implementation path shows exactly how the same scenario maps to Databricks services and workspace evidence.</p>
+        </div>
+
+        <div class="verification-board">
+          <div class="verification-item verified"><span>Live</span><strong>Public simulation</strong><small>Four synthetic incident scenarios</small></div>
+          <div class="verification-item verified"><span>Verified</span><strong>Repository quality</strong><small>PySpark tests passing in GitHub Actions</small></div>
+          <div class="verification-item pending"><span>In progress</span><strong>Databricks execution</strong><small>Free Edition workspace evidence pending</small></div>
+        </div>
+
+        <div class="platform-map">
+          <article>
+            <span class="platform-index">DBX / 01</span>
+            <h3>Serverless Spark</h3>
+            <p>Runs the import-ready Python notebook without managing a classic cluster.</p>
+            <code>spark.createDataFrame(...)</code>
+          </article>
+          <article>
+            <span class="platform-index">DBX / 02</span>
+            <h3>Delta tables</h3>
+            <p>Persists replayable Bronze, trusted Silver, quarantine and business-ready Gold tables.</p>
+            <code>saveAsTable(...)</code>
+          </article>
+          <article>
+            <span class="platform-index">DBX / 03</span>
+            <h3>Unity Catalog</h3>
+            <p>Places assets in a governed catalog and schema with a documented least-privilege model.</p>
+            <code>catalog.schema.table</code>
+          </article>
+          <article>
+            <span class="platform-index">DBX / 04</span>
+            <h3>Lakeflow Jobs</h3>
+            <p>Turns the notebook into a repeatable serverless workflow with observable run history.</p>
+            <code>notebook_task</code>
+          </article>
+          <article>
+            <span class="platform-index">DBX / 05</span>
+            <h3>Automation Bundle</h3>
+            <p>Defines the Free Edition job as versioned YAML alongside the code it executes.</p>
+            <code>databricks bundle deploy</code>
+          </article>
+          <article>
+            <span class="platform-index">DBX / 06</span>
+            <h3>AI/BI dashboard</h3>
+            <p>Uses the Gold sales contract for stakeholder reporting after workspace execution is verified.</p>
+            <code>gold.daily_sales</code>
+          </article>
+        </div>
+
+        <div class="execution-story">
+          <div class="execution-copy">
+            <div class="kicker">Real execution contract</div>
+            <h3>Six in. Five trusted. RM997.60 reported.</h3>
+            <p>The workspace notebook creates six source events, identifies the replayed order, retains five trusted orders and asserts the correct Gold revenue. A failed assertion stops the demonstration rather than displaying an unreliable result.</p>
+            <div class="execution-links">
+              <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/notebooks/lakehouse_rescue_lab.py">Inspect the notebook →</a>
+              <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/tree/main/examples/free-edition">See Free Edition bundle →</a>
+            </div>
+          </div>
+          <pre aria-label="Databricks validation example"><code><span># Executed inside Databricks</span>
+assert bronze_count == 6
+assert trusted_count == 5
+assert quarantine_count == 1
+assert round(gold_revenue, 2) == 997.60
+
+print("LAKEHOUSE RESCUE: VERIFIED")</code></pre>
+        </div>
+
+        <div class="evidence-steps">
+          <span>Evidence we will publish after the real run</span>
+          <ol>
+            <li><b>01</b> Executed notebook HTML with outputs</li>
+            <li><b>02</b> Lakeflow Job run URL and timestamp</li>
+            <li><b>03</b> Bronze, Silver, quarantine and Gold counts</li>
+            <li><b>04</b> Unity Catalog table and lineage screenshots</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <section class="evidence" id="evidence">
       <div class="shell evidence-inner">
-        <div><div class="kicker light">03 / Delivery evidence</div><h2>Inspect every claim.</h2></div>
+        <div><div class="kicker light">04 / Delivery evidence</div><h2>Inspect every claim.</h2></div>
         <div class="evidence-list">
           <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/tree/main/src"><span>01</span><div><strong>Pipeline source</strong><small>PySpark transformations and SQL marts</small></div><b>↗</b></a>
           <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/tree/main/tests"><span>02</span><div><strong>Automated tests</strong><small>Quality, deduplication and KPI contracts</small></div><b>↗</b></a>
