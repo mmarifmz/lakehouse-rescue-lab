@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260904-2">
 </head>
 <body>
   <header class="topbar">
@@ -160,33 +160,57 @@
             <p>We keep the Databricks workload portable, then adapt identity, storage, private connectivity, deployment and monitoring to the client's chosen cloud.</p>
           </div>
 
+          <div class="portable-core">
+            <div class="portable-core-heading">
+              <span class="portable-core-icon" aria-hidden="true">DBX</span>
+              <div><small>Portable Databricks core</small><strong>The engineering pattern stays consistent</strong></div>
+            </div>
+            <ul aria-label="Portable Databricks capabilities">
+              <li>PySpark</li><li>Delta tables</li><li>Unity Catalog</li><li>Lakeflow Jobs</li><li>CI/CD</li><li>Observability</li>
+            </ul>
+            <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/docs/multi-cloud-delivery.md">View delivery matrix <span>→</span></a>
+          </div>
+
           <div class="cloud-provider-grid">
             <article class="cloud-provider aws">
-              <div class="cloud-provider-top"><span class="cloud-monogram">AWS</span><span class="capability-label">Delivery ready</span></div>
+              <div class="cloud-provider-top"><span class="cloud-monogram" aria-hidden="true">AWS</span><span class="capability-label"><i></i> Delivery ready</span></div>
               <h4>Amazon Web Services</h4>
               <p>Databricks delivery aligned to AWS-native data, security and operational controls.</p>
-              <ul><li>Amazon S3 storage</li><li>IAM roles and policies</li><li>AWS PrivateLink</li><li>CloudWatch integration</li></ul>
+              <dl class="cloud-service-map">
+                <div><dt>Storage</dt><dd>Amazon S3</dd></div>
+                <div><dt>Identity</dt><dd>IAM roles &amp; policies</dd></div>
+                <div><dt>Private network</dt><dd>AWS PrivateLink</dd></div>
+                <div><dt>Monitoring</dt><dd>Amazon CloudWatch</dd></div>
+              </dl>
             </article>
             <article class="cloud-provider azure">
-              <div class="cloud-provider-top"><span class="cloud-monogram">AZURE</span><span class="capability-label">Delivery ready</span></div>
+              <div class="cloud-provider-top"><span class="cloud-monogram" aria-hidden="true">AZ</span><span class="capability-label"><i></i> Delivery ready</span></div>
               <h4>Microsoft Azure</h4>
               <p>Azure Databricks delivery integrated with the organisation's Azure governance model.</p>
-              <ul><li>ADLS Gen2 storage</li><li>Microsoft Entra ID</li><li>Azure Private Link</li><li>Azure Monitor integration</li></ul>
+              <dl class="cloud-service-map">
+                <div><dt>Storage</dt><dd>ADLS Gen2</dd></div>
+                <div><dt>Identity</dt><dd>Microsoft Entra ID</dd></div>
+                <div><dt>Private network</dt><dd>Azure Private Link</dd></div>
+                <div><dt>Monitoring</dt><dd>Azure Monitor</dd></div>
+              </dl>
             </article>
             <article class="cloud-provider gcp">
-              <div class="cloud-provider-top"><span class="cloud-monogram">GCP</span><span class="capability-label">Delivery ready</span></div>
+              <div class="cloud-provider-top"><span class="cloud-monogram" aria-hidden="true">GCP</span><span class="capability-label"><i></i> Delivery ready</span></div>
               <h4>Google Cloud</h4>
               <p>Databricks delivery mapped to Google Cloud data, identity and networking services.</p>
-              <ul><li>Cloud Storage</li><li>Cloud IAM</li><li>Private Service Connect</li><li>Cloud Monitoring integration</li></ul>
+              <dl class="cloud-service-map">
+                <div><dt>Storage</dt><dd>Cloud Storage</dd></div>
+                <div><dt>Identity</dt><dd>Cloud IAM</dd></div>
+                <div><dt>Private network</dt><dd>Private Service Connect</dd></div>
+                <div><dt>Monitoring</dt><dd>Cloud Monitoring</dd></div>
+              </dl>
             </article>
           </div>
 
-          <div class="cloud-boundary">
-            <strong>What stays consistent</strong>
-            <span>PySpark · Delta tables · Unity Catalog · Lakeflow Jobs · CI/CD · observability</span>
-            <a href="https://github.com/mmarifmz/lakehouse-rescue-lab/blob/main/docs/multi-cloud-delivery.md">Inspect the delivery matrix →</a>
-          </div>
-          <p class="cloud-proof-note"><strong>Evidence boundary:</strong> the notebook and serverless Job are verified in Databricks Free Edition. AWS, Azure and Google Cloud cards describe our delivery capability and adaptation model, not three claimed production deployments.</p>
+          <aside class="cloud-proof-note" aria-label="Evidence boundary">
+            <span>Evidence boundary</span>
+            <p>The notebook and serverless Job are verified in Databricks Free Edition. The cloud cards show our delivery and adaptation model—not three claimed production deployments.</p>
+          </aside>
         </div>
 
         <div class="platform-map">
