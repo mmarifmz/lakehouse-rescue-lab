@@ -18,6 +18,7 @@
     </a>
     <nav aria-label="Primary navigation">
       <a href="#lab">Interactive lab</a>
+      <a href="#snowflake-case">Snowflake business case</a>
       <a href="#databricks">Databricks delivery</a>
       <a href="delivery-planner.html">Delivery planner</a>
       <a href="#evidence">Delivery evidence</a>
@@ -29,7 +30,7 @@
     <section class="hero shell">
       <div class="eyebrow"><span></span> Interactive lakehouse delivery proof</div>
       <h1>Bad data arrives.<br><em>Trusted decisions leave.</em></h1>
-      <p class="hero-copy">Explore how a production-minded Databricks pipeline detects duplicate orders, quarantines invalid records, protects customer data and rebuilds reliable business metrics.</p>
+      <p class="hero-copy">Explore how governed data delivery detects duplicate orders, quarantines invalid records, protects customer data and rebuilds reliable business metrics.</p>
       <div class="hero-actions">
         <a class="button primary" href="#lab">Run the pipeline <span>→</span></a>
         <a class="button secondary" href="#architecture">See the architecture</a>
@@ -123,10 +124,75 @@
       </div>
     </section>
 
+    <section class="snowflake-case" id="snowflake-case">
+      <div class="shell">
+        <div class="section-heading snowflake-heading">
+          <div>
+            <div class="kicker">02 / Snowflake business case</div>
+            <h2>Can Finance trust today's sales number?</h2>
+          </div>
+          <p>This is the question the Snowflake extension answers. You do not need to understand data platforms to understand the outcome.</p>
+        </div>
+
+        <div class="business-story">
+          <div class="business-problem">
+            <span class="story-label">The business problem</span>
+            <h3>A Finance Director is preparing the daily trading update.</h3>
+            <p>Orders arrive from the web store, retail outlets and marketplace. A system retry sends one order twice. If that duplicate reaches the report, leadership sees revenue that was never earned and may make the wrong decision.</p>
+            <dl class="business-questions">
+              <div><dt>Question 1</dt><dd>What did we actually sell today?</dd></div>
+              <div><dt>Question 2</dt><dd>Which sales channel is behind plan?</dd></div>
+              <div><dt>Question 3</dt><dd>Can Finance explain and defend the number?</dd></div>
+            </dl>
+          </div>
+          <aside class="decision-card" aria-label="Decision protected by the demo">
+            <span>Decision protected</span>
+            <strong>Do we increase tomorrow's sales target or correct the source issue first?</strong>
+            <p>Without a trusted number, a confident-looking dashboard can still lead to the wrong action.</p>
+          </aside>
+        </div>
+
+        <div class="before-after" aria-label="Business outcome before and after the Snowflake controls">
+          <article class="before-card">
+            <span>Before the control</span>
+            <h3>RM1,417.60 appears on the report</h3>
+            <p>The duplicated RM420.00 order is included. Finance spends time checking spreadsheets and asking teams which number is correct.</p>
+            <small>Risk: overstated revenue and delayed decisions</small>
+          </article>
+          <div class="outcome-arrow" aria-hidden="true">→</div>
+          <article class="after-card">
+            <span>After the control</span>
+            <h3>RM997.60 is ready for review</h3>
+            <p>The duplicate is retained as evidence, excluded from the trusted sales result and made visible for follow-up.</p>
+            <small>Outcome: a decision-ready number with an audit trail</small>
+          </article>
+        </div>
+
+        <div class="snowflake-plain-grid">
+          <article><span class="plain-index">01</span><h3>Bring the facts together</h3><p>Snowflake receives the synthetic sales events in one controlled place. Nothing is silently overwritten.</p></article>
+          <article><span class="plain-index">02</span><h3>Check before reporting</h3><p>It tests for repeat orders, invalid values and missing timestamps before the data reaches Finance.</p></article>
+          <article><span class="plain-index">03</span><h3>Give each person the right view</h3><p>Finance sees trusted totals, operations sees exceptions to fix, and auditors see masked evidence rather than unrestricted personal data.</p></article>
+        </div>
+
+        <div class="snowflake-delivery">
+          <div>
+            <div class="kicker">How the demo maps to Snowflake</div>
+            <h3>Business-first on the surface. Native controls underneath.</h3>
+            <p>The planned implementation uses synthetic data only: a staged source table, a validated trusted-order layer, a quarantine table and a daily sales mart. Dynamic Tables keep the reporting layer current; role-based access and masking protect the people behind the numbers.</p>
+          </div>
+          <ul aria-label="Snowflake implementation artefacts">
+            <li><b>Ingest</b><span>Stage and COPY INTO</span></li><li><b>Transform</b><span>Dynamic Tables and SQL</span></li><li><b>Trust</b><span>Reconciliation and quarantine</span></li><li><b>Protect</b><span>Roles, tags and masking</span></li>
+          </ul>
+        </div>
+
+        <aside class="snowflake-boundary"><span>Evidence boundary</span><p>This is an inspectable Snowflake delivery design using synthetic sales data. The SQL assets are ready for a Snowflake trial account, but no Snowflake account execution, client data, production security or cost claim is made until it is independently run and evidenced.</p></aside>
+      </div>
+    </section>
+
     <section class="architecture shell" id="architecture">
       <div class="section-heading">
-        <div><div class="kicker">02 / Architecture</div><h2>Designed for delivery, not screenshots.</h2></div>
-        <p>The public experience is a transparent browser simulation. The repository contains the corresponding Databricks-oriented implementation.</p>
+        <div><div class="kicker">03 / Architecture</div><h2>Designed for delivery, not screenshots.</h2></div>
+        <p>The public experience is a transparent browser simulation. The repository contains Databricks implementation evidence and a Snowflake-ready business-case design.</p>
       </div>
       <div class="architecture-grid">
         <article><span>Source control</span><h3>One deployable repository</h3><p>Pipeline code, job resources, access model, tests and operational documentation are versioned together.</p></article>
@@ -140,7 +206,7 @@
       <div class="shell">
         <div class="section-heading">
           <div>
-            <div class="kicker">03 / Databricks delivery</div>
+            <div class="kicker">04 / Databricks delivery</div>
             <h2>From browser story to a real lakehouse run.</h2>
           </div>
           <p>The public lab explains the outcome. This implementation path shows exactly how the same scenario maps to Databricks services and workspace evidence.</p>

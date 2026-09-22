@@ -16,6 +16,7 @@ An interactive, inspectable demonstration of production-minded Databricks delive
 - Multi-cloud delivery mapping for AWS, Azure and Google Cloud
 - Interactive Databricks delivery checklist and business use-case planner
 - Unit tests and operational recovery guidance
+- Snowflake-ready Finance close business case, with synthetic SQL assets and explicit execution boundaries
 
 ## The example in plain English
 
@@ -31,6 +32,12 @@ Imagine that an online shop receives five genuine orders worth **RM997.60**. The
 This is the practical value of the project: a common data-delivery problem is detected before it becomes a misleading business report.
 
 The interactive site also includes invalid amounts, broken timestamps and late-arriving orders. Each scenario explains what the pipeline did and why.
+
+## Snowflake business case: daily Finance close
+
+The Snowflake extension explains the same incident in business language: a Finance Director needs a trustworthy daily sales number before deciding whether to adjust a target or investigate an exception. The new [Snowflake business-case assets](snowflake/) show how synthetic sales events become trusted daily revenue, a visible duplicate exception and controlled role-based access.
+
+It deliberately distinguishes an inspectable Snowflake design from Snowflake account execution. No Snowflake production, client-data, account-security or cost claim is made until a separate account run is completed and evidenced.
 
 ## 60-second guided tour
 
