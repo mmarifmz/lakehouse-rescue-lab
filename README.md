@@ -17,6 +17,7 @@ An interactive, inspectable demonstration of production-minded Databricks delive
 - Interactive Databricks delivery checklist and business use-case planner
 - Unit tests and operational recovery guidance
 - Snowflake-ready Finance close business case, with synthetic SQL assets and explicit execution boundaries
+- A business-demand explorer for revenue, cash, inventory, customer service, risk and sustainability reporting
 
 ## The example in plain English
 
@@ -32,6 +33,19 @@ Imagine that an online shop receives five genuine orders worth **RM997.60**. The
 This is the practical value of the project: a common data-delivery problem is detected before it becomes a misleading business report.
 
 The interactive site also includes invalid amounts, broken timestamps and late-arriving orders. Each scenario explains what the pipeline did and why.
+
+## Business-demand explorer
+
+The interactive lab now starts with the decision a non-technical team needs to make. Choose a business demand, test an incident and follow the visual path from source signals through controls to a decision-ready outcome.
+
+- Revenue and margin: can Finance trust today's sales number?
+- Cash collections: what cash is truly available?
+- Inventory availability: which orders can Operations fulfil?
+- Customer service: which cases need action before an SLA breach?
+- Risk and fraud: which payments need review before release?
+- ESG and compliance: can the business stand behind the report?
+
+These are synthetic discovery scenarios, not client claims or live market data. A live [Google Trends Malaysia view](https://trends.google.com/trending?geo=MY&hl=en-GB) was used only as a directional freshness check: volatile public search interest is not evidence of enterprise demand.
 
 ## Snowflake business case: daily Finance close
 

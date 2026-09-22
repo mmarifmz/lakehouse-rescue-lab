@@ -45,19 +45,44 @@
         <div class="section-heading">
           <div>
             <div class="kicker">01 / Interactive lab</div>
-            <h2>Put the pipeline under pressure.</h2>
+            <h2>Start with the business decision, then test the data behind it.</h2>
           </div>
-          <p>Choose an incident and see what changes at every layer. All records are synthetic.</p>
+          <p>Choose a current business demand, inject a realistic data incident and see exactly what protects the decision. All records are synthetic.</p>
+        </div>
+
+        <div class="use-case-picker" role="group" aria-label="Business demand">
+          <button class="use-case active" data-use-case="revenue"><span>01</span><strong>Revenue and margin</strong><small>Can Finance trust today's sales?</small></button>
+          <button class="use-case" data-use-case="cash"><span>02</span><strong>Cash collections</strong><small>What cash is truly available?</small></button>
+          <button class="use-case" data-use-case="inventory"><span>03</span><strong>Inventory availability</strong><small>Which orders can we fulfil?</small></button>
+          <button class="use-case" data-use-case="service"><span>04</span><strong>Customer service</strong><small>Which cases risk an SLA breach?</small></button>
+          <button class="use-case" data-use-case="risk"><span>05</span><strong>Risk and fraud</strong><small>Which payments need review?</small></button>
+          <button class="use-case" data-use-case="sustainability"><span>06</span><strong>ESG and compliance</strong><small>Can we stand behind the report?</small></button>
+        </div>
+
+        <div class="business-context">
+          <div><span>Business decision</span><h3 id="businessDecision">Should Finance act on today's sales number?</h3></div>
+          <div><span>Data inputs</span><p id="businessInputs">Web orders, retail point of sale and marketplace feeds</p></div>
+          <div><span>Trusted output</span><p id="businessOutput">Daily revenue, channel performance and an exception list</p></div>
+        </div>
+
+        <div class="business-flow" aria-label="Business decision data flow">
+          <article><span>01</span><strong id="flowQuestion">Business question</strong><small id="flowQuestionDetail">Can we trust today's sales?</small></article>
+          <i aria-hidden="true">→</i>
+          <article><span>02</span><strong>Source signals</strong><small id="flowSources">Web, store and marketplace</small></article>
+          <i aria-hidden="true">→</i>
+          <article><span>03</span><strong>Controls</strong><small id="flowControls">Validate, reconcile and quarantine</small></article>
+          <i aria-hidden="true">→</i>
+          <article class="flow-outcome"><span>04</span><strong>Decision-ready result</strong><small id="flowOutcome">Trusted revenue and exceptions</small></article>
         </div>
 
         <div class="control-panel">
           <div class="scenario-control">
-            <label for="scenario">Incoming data scenario</label>
+            <label for="scenario">Data incident to test</label>
             <select id="scenario">
-              <option value="normal">Normal trading day</option>
-              <option value="duplicates">Duplicate delivery</option>
-              <option value="invalid">Invalid records</option>
-              <option value="late">Late-arriving orders</option>
+              <option value="normal">Normal operating day</option>
+              <option value="duplicates">Duplicate or replayed event</option>
+              <option value="invalid">Invalid or incomplete record</option>
+              <option value="late">Late-arriving update</option>
             </select>
           </div>
           <div class="persona-control" role="group" aria-label="Data persona">
@@ -78,26 +103,26 @@
         <div class="pipeline" id="pipeline">
           <article class="layer-card bronze" data-layer="bronze">
             <div class="layer-top"><span class="layer-number">01</span><span class="layer-state">Waiting</span></div>
-            <h3>Bronze</h3>
-            <p>Raw, immutable landing zone</p>
-            <div class="metric"><strong id="bronzeCount">-</strong><span>records received</span></div>
-            <ul><li>Source metadata</li><li>Ingestion timestamp</li><li>Replayable history</li></ul>
+            <h3 id="bronzeName">Capture</h3>
+            <p id="bronzeDescription">Keep every source event as evidence</p>
+            <div class="metric"><strong id="bronzeCount">-</strong><span id="bronzeMetric">source records received</span></div>
+            <ul id="bronzeRules"><li>Source metadata</li><li>Ingestion timestamp</li><li>Replayable history</li></ul>
           </article>
           <div class="flow-arrow" aria-hidden="true">→</div>
           <article class="layer-card silver" data-layer="silver">
             <div class="layer-top"><span class="layer-number">02</span><span class="layer-state">Waiting</span></div>
-            <h3>Silver</h3>
-            <p>Validated and conformed data</p>
-            <div class="metric"><strong id="silverCount">-</strong><span>trusted records</span></div>
-            <ul><li>Schema enforcement</li><li>Deterministic deduplication</li><li>PII classification</li></ul>
+            <h3 id="silverName">Trust</h3>
+            <p id="silverDescription">Validate facts before they reach a decision</p>
+            <div class="metric"><strong id="silverCount">-</strong><span id="silverMetric">trusted records</span></div>
+            <ul id="silverRules"><li>Schema enforcement</li><li>Deterministic deduplication</li><li>PII classification</li></ul>
           </article>
           <div class="flow-arrow" aria-hidden="true">→</div>
           <article class="layer-card gold" data-layer="gold">
             <div class="layer-top"><span class="layer-number">03</span><span class="layer-state">Waiting</span></div>
-            <h3>Gold</h3>
-            <p>Business-ready aggregates</p>
-            <div class="metric"><strong id="goldRevenue">-</strong><span>trusted revenue</span></div>
-            <ul><li>Daily sales mart</li><li>Channel performance</li><li>Auditable definitions</li></ul>
+            <h3 id="goldName">Decide</h3>
+            <p id="goldDescription">Publish the metric and the exception list</p>
+            <div class="metric"><strong id="goldRevenue">-</strong><span id="goldMetric">trusted revenue</span></div>
+            <ul id="goldRules"><li>Daily sales mart</li><li>Channel performance</li><li>Auditable definitions</li></ul>
           </article>
         </div>
 
@@ -110,7 +135,7 @@
             <div class="panel-title"><div><span>Record explorer</span><h3 id="recordTitle">Processed records</h3></div><span class="badge neutral" id="personaBadge">Engineer view</span></div>
             <div class="table-wrap">
               <table>
-                <thead><tr><th>Order</th><th>Customer</th><th>Channel</th><th>Amount</th><th>Status</th></tr></thead>
+                <thead><tr><th id="columnOne">Order</th><th id="columnTwo">Customer</th><th id="columnThree">Channel</th><th id="columnFour">Amount</th><th>Status</th></tr></thead>
                 <tbody id="recordRows"><tr><td colspan="5" class="empty">Run the pipeline to inspect records.</td></tr></tbody>
               </table>
             </div>
@@ -118,8 +143,8 @@
         </div>
 
         <div class="incident-note" id="incidentNote">
-          <span>Operational insight</span>
-          <p>The pipeline has not run yet. Choose a failure scenario to see how quality controls protect the reported revenue.</p>
+          <span>Business outcome</span>
+          <p>The pipeline has not run yet. Choose a business demand and test an incident to see how controls protect the decision.</p>
         </div>
       </div>
     </section>
