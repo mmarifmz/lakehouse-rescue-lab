@@ -30,7 +30,7 @@ The notebook stops with an assertion error if any contract fails.
 
 ## 4. Create a serverless Job
 
-From the notebook, schedule or create a Job using serverless compute. Name it `Lakehouse Rescue Lab — Free Edition`, run it once, and retain the successful run details.
+From the notebook, schedule or create a Job using serverless compute. Name it `Lakehouse Rescue Lab - Free Edition`, run it once, and retain the successful run details.
 
 The optional bundle under `examples/free-edition/` expresses the same notebook task without defining a classic cluster. Validate it only after configuring Databricks CLI authentication for the workspace.
 

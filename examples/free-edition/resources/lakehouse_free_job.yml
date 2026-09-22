@@ -1,7 +1,7 @@
 resources:
   jobs:
     lakehouse_rescue_free_job:
-      name: "[${bundle.target}] Lakehouse Rescue Lab — Free Edition"
+      name: "[${bundle.target}] Lakehouse Rescue Lab - Free Edition"
       max_concurrent_runs: 1
       tasks:
         - task_key: run_rescue_notebook

@@ -98,9 +98,9 @@ async function runPipeline() {
   button.disabled = true;
   dot.className = "status-dot running";
   layers.forEach(layer => { layer.classList.remove("complete", "processing"); layer.querySelector(".layer-state").textContent = "Waiting"; });
-  document.getElementById("bronzeCount").textContent = "—";
-  document.getElementById("silverCount").textContent = "—";
-  document.getElementById("goldRevenue").textContent = "—";
+  document.getElementById("bronzeCount").textContent = "-";
+  document.getElementById("silverCount").textContent = "-";
+  document.getElementById("goldRevenue").textContent = "-";
   for (const [index, layer] of layers.entries()) {
     layer.classList.add("processing");
     layer.querySelector(".layer-state").textContent = "Processing";
