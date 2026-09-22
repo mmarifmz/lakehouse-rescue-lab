@@ -37,6 +37,8 @@ The interactive site also includes invalid amounts, broken timestamps and late-a
 
 The Snowflake extension explains the same incident in business language: a Finance Director needs a trustworthy daily sales number before deciding whether to adjust a target or investigate an exception. The new [Snowflake business-case assets](snowflake/) show how synthetic sales events become trusted daily revenue, a visible duplicate exception and controlled role-based access.
 
+The live experience also works as a discovery aid for two audiences: a **regional business data owner** can use it to agree the decision, ownership, exception path and trust rules; a **data platform developer** can use the same agreed scenario to scope ingestion, controls, governance and testable acceptance criteria.
+
 It deliberately distinguishes an inspectable Snowflake design from Snowflake account execution. No Snowflake production, client-data, account-security or cost claim is made until a separate account run is completed and evidenced.
 
 ## 60-second guided tour
